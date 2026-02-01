@@ -1,0 +1,81 @@
+    AWS 
+==============
+
+Clouding Computing
+===========================
+Computing 
+------------> use of computers(A machine can process something(eg:calculate))
+
+RAM , ROM , Processor (computer) buy using these things together can performs a task is 
+called compute.
+
+Cloud - > A kind of connection between you and your machine
+
+If a person who has a machine(computer) in his house, when he is in his office and he just want to access his own machine from the office , to achieve this through network is called 
+cloud computing.
+
+         AWS (Amazon Web Services)
+=========================================
+First cloud provider
+
+Why cloud? Advantages of using cloud instead of local machines
+---------------------------------------
+--> Easy to scale
+--> Resources wastage
+--> No downtime
+--> Security
+
+pay(rent) and go use.
+
+What cloud actually offers?
+============================================
+
+not just servers -----now there is lots of services providing
+Managing DB
+
+Cloud Types
+======================================
+IaaS (Infrastructure as a Service)
+--------------------------------------
+Provide the infrastructure eg: server(machine), only we can use machine(with ram , storage) .And all the other things like installation of apps(like whatever os want to install) , managing db ,updates are  managed by the person who owned by the IaaS.
+
+PaaS (Platform as a Service)
+---------------------------
+It also manages(Infrastructure)
+
+SaaS (Software as a Service)
+-------------------------------
+Not need to manage the platform.
+No need to scale , no scaling , no installation 
+eg :Micro fabric
+
+================================================
+
+Cloud Architecture
+-----------------------------------
+Public cloud
+AWS ,Azure,GCP
+We can access through internet
+
+Private cloud
+private for an organization.
+locked. Accessed by an organization owned by
+
+Hybrid cloud
+
+combo of Public and private
+AWS + Private 
+------------------------------------
+
+
+
+
+ 
+
+
+
+
+
+
+
+  
