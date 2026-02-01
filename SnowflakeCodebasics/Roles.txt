@@ -1,0 +1,85 @@
+Roles
+=========================
+
+Governance & security (left side) -> users & roles
+
+create roles 
+=====================
+dataanalysts
+dataengineers
+
+create users
+====================
+Rahul - cmRfktHA9Nty4C7
+Eben - cmRfktHA9Nty4C7
+
+grand roles to each users
+============================
+go to roles ->click the role -> grand to user or in user right side three dots menu -> grand a role add the roles
+
+===============================================================
+
+// Use admin role to grant access
+USE ROLE ACCOUNTADMIN;
+
+// ----------- Data analysts ----------------  //
+
+// The role needs compute power to run queries.
+GRANT USAGE ON WAREHOUSE BI_PROD_WH TO ROLE DATAANALYSTS;
+
+// The role must be able to “see” and “use” these objects before it can query them.
+GRANT USAGE ON DATABASE SALES_DB TO ROLE DATAANALYSTS;
+GRANT USAGE ON SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAANALYSTS;
+
+// Now give data-level access such as SELECT, INSERT, UPDATE, etc.
+GRANT SELECT ON ALL TABLES IN SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAANALYSTS;
+
+check the access is works fine
+open incognito -> app.snowflake.com then the snowflake ui view user account details
+-> copy the account identifier sign in add the username Rahul and his password
+
+// Verify grants
+SHOW GRANTS TO ROLE DATAANALYSTS;
+
+// revoke access
+REVOKE SELECT ON ALL TABLES IN SCHEMA SALES_DB.RAW_SCHEMA FROM ROLE DATAANALYSTS;
+
+
+// ----------- Data Engineers ----------------  //
+
+// The role needs compute power to run queries.
+GRANT USAGE ON WAREHOUSE ETL_DEV_WH TO ROLE DATAENGINEERS;
+
+// The role must be able to “see” and “use” these objects before it can query them.
+GRANT USAGE ON DATABASE SALES_DB TO ROLE DATAENGINEERS;
+GRANT USAGE ON SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAENGINEERS;
+
+// Now give data-level access such as SELECT, INSERT, UPDATE, etc.
+GRANT SELECT, UPDATE, INSERT ON ALL TABLES IN SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAENGINEERS;
+
+// If you also want the role to access future tables (those that will be created later), use:
+GRANT SELECT, UPDATE, INSERT ON FUTURE TABLES IN SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAENGINEERS;
+
+// If the role should be allowed to create objects (e.g., tables or views):
+GRANT CREATE TABLE ON SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAENGINEERS;
+GRANT CREATE VIEW ON SCHEMA SALES_DB.RAW_SCHEMA TO ROLE DATAENGINEERS;
+
+// Verify grants
+SHOW GRANTS TO ROLE DATAENGINEERS;
+
+
+========================================
+Role-Based Access Control(RBAC) in snowflake allows managing user access through defined
+roles.
+
+RBAC assigns privileges to roles, and users gain access by being assigned to those roles.
+
+In this example , data analysts have select privileges, while data engineers have both
+select and update privileges.
+
+Changing a user's role updates their access without directly changing individual
+permissions.
+
+
+
+
